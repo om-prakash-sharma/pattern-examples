@@ -1,0 +1,36 @@
+/*
+ *  simple program to print Swastika pattern in java
+ * */
+public class scratch {
+
+    public static void main(String[] args) {
+        System.out.println("yes");
+        int steps = 8;
+        new scratch().printSwastika(steps);
+    }
+
+    /**
+     * method to print Swastika using *
+     *
+     * @param input
+     */
+    private void printSwastika(int input) {
+        int length = input * 2 - 1;
+        for (int row = 0; row < length; row++) {
+            for (int col = 0; col < length; col++) {
+                if ((col == 0 && row < input) // print 1st line vertical
+                        || (col == input - 1) // print vertical line
+                        || (row == input - 1) // print horizontal line
+                        || (row == 0 && input <= col) // print 1st top horizontal line
+                        || (row == length - 1 && col < input) // print bottom horizontal line
+                        || (col == length - 1 && row >= input)) // print bottom last vertical line
+                {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println("");
+        }
+    }
+}
